@@ -14,16 +14,16 @@ router.get("/", async (req, res) => {
 
 router.get("/deleteAllBooking", async (req, res) => {
     try {
-      const deleteAllBooking = await BookingUser.deleteMany()
-      if (deleteAllBooking) {
-        console.log(true);
-        res.status(201).json({ message: "Rinkiya ke papa all messages deleted hi hi hi!!!"})
-      }
+        const deleteAllBooking = await BookingUser.deleteMany()
+        if (deleteAllBooking) {
+            console.log(true);
+            res.status(201).json({ message: "Rinkiya ke papa all messages deleted hi hi hi!!!" })
+        }
     } catch (error) {
-      res.status(500).json({ message: "Internal Server Error" });
-      console.log(error);
+        res.status(500).json({ message: "Internal Server Error" });
+        console.log(error);
     }
-  })
+})
 
 router.get("/getAppointment", async (req, res) => {
     try {
@@ -45,18 +45,23 @@ router.post("/scheduleAppointment", async (req, res) => {
     }
     try {
         bookingId = await User.find({ booking_link_id: booking_link_id })
-        const book = new BookingUser({
-            booking_link_id: booking_link_id,
-            timeSchedule,
-            dateSchedule,
-            question_name,
-            question_email,
-            question_phone,
-            question_address,
-            question_numberOfPeople
-        });
-        await book.save();
-        res.status(201).json({ message: "Booking Done Successfully" });
+        bookedtimeSchedule = await BookingUser.find({ timeSchedule: timeSchedule })
+        console.log(bookedtimeSchedule);
+        bookeddateSchedule = await BookingUser.find({ dateSchedule: dateSchedule })
+
+            const book = new BookingUser({
+                booking_link_id: booking_link_id,
+                timeSchedule,
+                dateSchedule,
+                question_name,
+                question_email,
+                question_phone,
+                question_address,
+                question_numberOfPeople
+            });
+            await book.save();
+            res.status(201).json({ message: "Booking Done Successfully" });
+
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error" });
         console.log(error);
