@@ -46,7 +46,6 @@ router.post("/scheduleAppointment", async (req, res) => {
     try {
         bookingId = await User.find({ booking_link_id: booking_link_id })
         bookedtimeSchedule = await BookingUser.find({ timeSchedule: timeSchedule })
-        console.log(bookedtimeSchedule);
         bookeddateSchedule = await BookingUser.find({ dateSchedule: dateSchedule })
 
             const book = new BookingUser({
