@@ -67,7 +67,6 @@ router.post("/register", async (req, res) => {
         name, 
         email, 
         password, 
-        photo, 
         booking_link_id: uuidv4(),
         orgName,
         orglogo,
