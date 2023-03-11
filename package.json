@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "run": "node server.js"
   },
   "keywords": [],
@@ -22,8 +22,5 @@
     "nodemailer": "^6.7.4",
     "two-step-auth": "^1.1.2",
     "uuid": "^9.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.15"
   }
 }
