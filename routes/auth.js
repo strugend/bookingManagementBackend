@@ -33,7 +33,7 @@ router.get("/getAdminInfo", async (req, res) => {
   try {
     const adminInfo = await User.find({})
     if (adminInfo) {
-      res.send(adminInfo)
+      res.status(201).json({adminInfo: adminInfo})
     }
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error" });

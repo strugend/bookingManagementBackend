@@ -29,7 +29,7 @@ router.get("/getAppointment", async (req, res) => {
     try {
         const appointmentInfo = await BookingUser.find({ booking_link_id: req.query.booking_link_id })
         if (appointmentInfo) {
-            res.send(appointmentInfo)
+            res.status(201).json({appointmentInfo: appointmentInfo})
         }
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error" });
