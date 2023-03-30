@@ -28,6 +28,15 @@ const userSchema = new mongoose.Schema({
   orgDescription: {
     type: String,
   },
+  booking_start_time: {
+    type: String
+  },
+  booking_end_time: {
+    type: String
+  },
+  booking_interval: {
+    type: String
+  },
   booking_link_id: {
     type: Array,
     "default": []

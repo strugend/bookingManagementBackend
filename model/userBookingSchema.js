@@ -10,6 +10,10 @@ const userBookingSchema = new mongoose.Schema({
     dateSchedule: {
         type: String
     },
+    createdAt: {
+        type: Date, 
+        default: Date.now
+    },
     question_name: {
         type: String
     },

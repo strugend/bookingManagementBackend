@@ -71,7 +71,10 @@ router.post("/register", async (req, res) => {
         orgName,
         orglogo,
         orgBanner,
-        orgDescription
+        orgDescription,
+        booking_start_time: "10:00",
+        booking_end_time: "20:00",
+        booking_interval: "1:00"
       });
       await user.save();
       res.status(201).json({ message: "User Registered Successfully" });
